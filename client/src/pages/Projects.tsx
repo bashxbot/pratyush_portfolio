@@ -69,11 +69,8 @@ export default function Projects() {
                   <img
                     src="/attached_assets/screenshot-1763478771499.png"
                     alt="Firebase Realtime Database Fetcher and Editor"
-                    className="w-full h-auto"
+                    className="w-full h-auto object-cover"
                     data-testid="img-project"
-                    onError={(e) => {
-                      e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%23a855f7'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='32' fill='white'%3EFirebase RTDB%3C/text%3E%3C/svg%3E";
-                    }}
                   />
                 </div>
               </div>
