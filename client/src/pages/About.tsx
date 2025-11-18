@@ -5,14 +5,9 @@ import profileImage from "@assets/generated_images/Professional_profile_placehol
 export default function About() {
   const timeline = [
     {
-      year: "2025",
-      title: "Expert Vibe Coder",
-      description: "Became expert Vibe Coder, seeking for opportunities",
-    },
-    {
-      year: "2024",
-      title: "Expert Prompt Engineer",
-      description: "Became expert prompt engineer, mastering AI-assisted development",
+      year: "2022",
+      title: "Started Learning",
+      description: "Started learning Python and basics of websites",
     },
     {
       year: "2023",
@@ -20,9 +15,14 @@ export default function About() {
       description: "Started coding with AI tools and technologies",
     },
     {
-      year: "2022",
-      title: "Started Learning",
-      description: "Started learning Python and basics of websites",
+      year: "2024",
+      title: "Expert Prompt Engineer",
+      description: "Became expert prompt engineer, mastering AI-assisted development",
+    },
+    {
+      year: "2025",
+      title: "Expert Vibe Coder",
+      description: "Became expert Vibe Coder, seeking for opportunities",
     },
   ];
 
@@ -63,7 +63,7 @@ export default function About() {
             </h1>
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p data-testid="text-about-intro-1">
-                I'm a creative developer and designer passionate about crafting exceptional digital experiences that blend aesthetic beauty with functional excellence.
+                I'm a creative developer and designer passionate about crafting exceptional digital experiences that blend aesthetic beauty with functional excellence, with the help of AI tools.
               </p>
               <p data-testid="text-about-intro-2">
                 With a unique combination of technical expertise and creative vision, I transform complex ideas into elegant solutions that users love. My approach emphasizes attention to detail, modern design principles, and cutting-edge technology.

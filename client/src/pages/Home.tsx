@@ -96,7 +96,7 @@ export default function Home() {
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed" data-testid="text-hero-description">
-              Transforming ideas into exceptional digital experiences through innovative design and cutting-edge technology
+              Transforming ideas into exceptional digital experiences with the help of AI tools, innovative design, and cutting-edge technology
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -185,14 +185,11 @@ export default function Home() {
                   testId={`card-project-${index}`}
                 >
                   <div className="w-full h-48 rounded-2xl mb-6 overflow-hidden group-hover:scale-105 transition-transform duration-300">
-                    <img 
-                      src="/attached_assets/screenshot-1763478771499.png" 
+                    <img
+                      src="/sample1.png"
                       alt={project.title}
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                        e.currentTarget.parentElement!.innerHTML = `<div class="w-full h-full bg-gradient-to-br ${project.gradient} flex items-center justify-center"><div class="text-6xl font-bold text-white/10">${project.title.charAt(0)}</div></div>`;
-                      }}
+                      className="w-full h-auto"
+                      data-testid="img-featured-project"
                     />
                   </div>
                   <h3 className="font-display text-xl font-bold mb-2" data-testid={`text-project-title-${index}`}>{project.title}</h3>

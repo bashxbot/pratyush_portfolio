@@ -67,7 +67,7 @@ export default function Projects() {
                 <div className="absolute -inset-2 bg-gradient-to-r from-primary via-accent to-purple-500 rounded-2xl blur-xl opacity-50 group-hover/image:opacity-75 transition duration-300" />
                 <div className="relative rounded-2xl overflow-hidden border-2 border-primary/20 shadow-glow-lg">
                   <img
-                    src="/attached_assets/screenshot-1763478771499.png"
+                    src="/sample1.png"
                     alt="Firebase Realtime Database Fetcher and Editor"
                     className="w-full h-auto object-cover"
                     data-testid="img-project"
