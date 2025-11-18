@@ -47,11 +47,42 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const [magneticStyle, setMagneticStyle] = React.useState({});
+    const buttonRef = React.useRef<HTMLButtonElement>(null);
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (!buttonRef.current) return;
+      const rect = buttonRef.current.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      const distance = Math.sqrt(x * x + y * y);
+      
+      if (distance < 100) {
+        setMagneticStyle({
+          transform: `translate(${x * 0.3}px, ${y * 0.3}px)`,
+        });
+      }
+    };
+
+    const handleMouseLeave = () => {
+      setMagneticStyle({ transform: 'translate(0, 0)' });
+    };
+
     const Comp = asChild ? Slot : "button"
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
+        className={cn(buttonVariants({ variant, size, className }), "magnetic-button border-glow-animate")}
+        ref={(node) => {
+          buttonRef.current = node;
+          if (typeof ref === 'function') {
+            ref(node);
+          } else if (ref) {
+            ref.current = node;
+          }
+        }}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={magneticStyle}
         {...props}
       />
     )

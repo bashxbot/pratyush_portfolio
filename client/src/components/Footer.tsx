@@ -2,7 +2,7 @@ import { Github, Mail } from "lucide-react";
 
 export default function Footer() {
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub", testId: "link-github" },
+    { icon: Github, href: "https://github.com/bashxbot", label: "GitHub", testId: "link-github" },
     { icon: Mail, href: "mailto:hello@pratyush.dev", label: "Email", testId: "link-email" },
   ];
 
