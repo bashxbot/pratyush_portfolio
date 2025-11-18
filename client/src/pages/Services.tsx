@@ -86,8 +86,8 @@ export default function Services() {
     <div className="min-h-screen pt-32 pb-16">
       <section className="max-w-7xl mx-auto px-6 lg:px-8 mb-24 md:mb-32">
         <div className="text-center animate-fade-in">
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 zoom-in">
-            Services <span className="gradient-text text-glow">&amp; Expertise</span>
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Services <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">&amp; Expertise</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed" data-testid="text-services-hero-description">
             Comprehensive solutions tailored to your needs, from concept to deployment and beyond

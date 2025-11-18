@@ -52,7 +52,7 @@ export default function Navigation() {
                 <Link key={link.path} href={link.path}>
                   <Button
                     variant="ghost"
-                    className={`relative px-4 py-2 transition-all duration-300 hover-grow ${
+                    className={`relative px-4 py-2 transition-all duration-300 ${
                       location === link.path
                         ? "text-primary"
                         : "text-foreground/80 hover:text-foreground"
@@ -61,7 +61,7 @@ export default function Navigation() {
                   >
                     {link.label}
                     {location === link.path && (
-                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent shimmer-effect" />
+                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent animate-glow-pulse" />
                     )}
                   </Button>
                 </Link>
