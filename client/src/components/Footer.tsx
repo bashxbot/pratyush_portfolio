@@ -21,7 +21,7 @@ export default function Footer() {
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           <div className="space-y-4">
-            <h3 className="font-display text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <h3 className="font-display text-2xl font-bold gradient-text text-glow bounce-on-hover">
               Pratyush
             </h3>
             <p className="text-muted-foreground text-sm leading-relaxed" data-testid="text-footer-description">
@@ -60,8 +60,8 @@ export default function Footer() {
                   aria-label={social.label}
                   data-testid={social.testId}
                 >
-                  <div className="p-2 rounded-xl backdrop-blur-md bg-card/50 border border-border/50 hover:border-primary/50 hover:shadow-glow-sm transition-all duration-300 group-hover:scale-110">
-                    <social.icon className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+                  <div className="p-2 rounded-xl backdrop-blur-md bg-card/50 border border-border/50 hover:border-primary/50 hover:shadow-glow-sm transition-all duration-300 group-hover:scale-110 shimmer-effect wiggle-on-hover glow-on-hover">
+                    <social.icon className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors duration-300 rotate-on-hover" />
                   </div>
                 </a>
               ))}

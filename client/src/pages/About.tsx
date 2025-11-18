@@ -57,9 +57,9 @@ export default function About() {
     <div className="min-h-screen pt-32 pb-16">
       <section className="max-w-7xl mx-auto px-6 lg:px-8 mb-24 md:mb-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="animate-fade-in order-2 lg:order-1">
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              About <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Pratyush</span>
+          <div className="animate-fade-in-up order-2 lg:order-1">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 slide-in-left">
+              Hi, I'm <span className="gradient-text text-glow">Pratyush</span>
             </h1>
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p data-testid="text-about-intro-1">

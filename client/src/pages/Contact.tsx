@@ -22,8 +22,8 @@ export default function Contact() {
     <div className="min-h-screen pt-32 pb-16">
       <section className="max-w-7xl mx-auto px-6 lg:px-8 mb-16">
         <div className="text-center animate-fade-in">
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Let's <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Connect</span>
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 zoom-in">
+            Get in <span className="gradient-text text-glow">Touch</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed" data-testid="text-contact-hero-description">
             Have a project in mind? I'd love to hear about it. Reach out directly via email.
