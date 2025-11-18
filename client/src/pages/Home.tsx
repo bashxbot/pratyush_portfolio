@@ -47,22 +47,25 @@ export default function Home() {
 
   const featuredProjects = [
     {
-      title: "AI Dashboard",
-      description: "Modern analytics platform with real-time insights",
-      tech: ["React", "TypeScript", "TailwindCSS"],
+      title: "Vibe Coding",
+      description: "Modern interactive coding platform for enhanced learning",
+      tech: ["React", "TypeScript", "Firebase"],
       gradient: "from-primary/20 to-purple-500/20",
+      link: "https://q-firebase-cn8y.onrender.com",
     },
     {
       title: "E-Commerce Platform",
       description: "Seamless shopping experience with advanced features",
       tech: ["Next.js", "Node.js", "PostgreSQL"],
       gradient: "from-accent/20 to-cyan-500/20",
+      link: "#",
     },
     {
       title: "Creative Portfolio",
       description: "Immersive portfolio showcasing creative work",
       tech: ["React", "Framer Motion", "Three.js"],
       gradient: "from-purple-500/20 to-pink-500/20",
+      link: "#",
     },
   ];
 
@@ -179,31 +182,38 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProjects.map((project, index) => (
-              <GlassCard
+              <a
                 key={project.title}
-                className="group animate-fade-in-up overflow-hidden"
-                style={{ animationDelay: `${index * 100}ms` } as any}
-                testId={`card-project-${index}`}
+                href={project.link}
+                target={project.link.startsWith('http') ? "_blank" : undefined}
+                rel={project.link.startsWith('http') ? "noopener noreferrer" : undefined}
+                className="block"
               >
-                <div className={`w-full h-48 rounded-2xl bg-gradient-to-br ${project.gradient} mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300`}>
-                  <div className="text-6xl font-bold text-white/10">{project.title.charAt(0)}</div>
-                </div>
-                <h3 className="font-display text-xl font-bold mb-2" data-testid={`text-project-title-${index}`}>{project.title}</h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed" data-testid={`text-project-description-${index}`}>
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 text-xs font-medium rounded-full backdrop-blur-md bg-primary/10 text-primary border border-primary/20"
-                      data-testid={`badge-tech-${tech.toLowerCase().replace(/\./g, '-')}`}
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </GlassCard>
+                <GlassCard
+                  className="group animate-fade-in-up overflow-hidden h-full hover:shadow-glow-lg transition-all duration-300 cursor-pointer"
+                  style={{ animationDelay: `${index * 100}ms` } as any}
+                  testId={`card-project-${index}`}
+                >
+                  <div className={`w-full h-48 rounded-2xl bg-gradient-to-br ${project.gradient} mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300`}>
+                    <div className="text-6xl font-bold text-white/10">{project.title.charAt(0)}</div>
+                  </div>
+                  <h3 className="font-display text-xl font-bold mb-2" data-testid={`text-project-title-${index}`}>{project.title}</h3>
+                  <p className="text-muted-foreground mb-4 leading-relaxed" data-testid={`text-project-description-${index}`}>
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 text-xs font-medium rounded-full backdrop-blur-md bg-primary/10 text-primary border border-primary/20"
+                        data-testid={`badge-tech-${tech.toLowerCase().replace(/\./g, '-')}`}
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </GlassCard>
+              </a>
             ))}
           </div>
 
