@@ -78,7 +78,7 @@ export default function Home() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <div className="animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md bg-primary/10 border border-primary/20 mb-8" data-testid="badge-availability">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md bg-primary/10 border border-primary/20 mb-8 mt-8" data-testid="badge-availability">
               <Sparkles className="h-4 w-4 text-primary animate-glow-pulse" />
               <span className="text-sm font-medium text-primary" data-testid="text-availability">Available for new projects</span>
             </div>
@@ -184,8 +184,16 @@ export default function Home() {
                   style={{ animationDelay: `${index * 100}ms` } as any}
                   testId={`card-project-${index}`}
                 >
-                  <div className={`w-full h-48 rounded-2xl bg-gradient-to-br ${project.gradient} mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300`}>
-                    <div className="text-6xl font-bold text-white/10">{project.title.charAt(0)}</div>
+                  <div className="w-full h-48 rounded-2xl mb-6 overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                    <img 
+                      src="/attached_assets/screenshot-1763478771499.png" 
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.parentElement!.innerHTML = `<div class="w-full h-full bg-gradient-to-br ${project.gradient} flex items-center justify-center"><div class="text-6xl font-bold text-white/10">${project.title.charAt(0)}</div></div>`;
+                      }}
+                    />
                   </div>
                   <h3 className="font-display text-xl font-bold mb-2" data-testid={`text-project-title-${index}`}>{project.title}</h3>
                   <p className="text-muted-foreground mb-4 leading-relaxed" data-testid={`text-project-description-${index}`}>
@@ -214,7 +222,7 @@ export default function Home() {
                 className="backdrop-blur-md bg-background/50 hover:bg-background/80 border-primary/30 hover:border-primary/50"
                 data-testid="button-view-all-projects"
               >
-                View All Projects
+                Get More Details
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
