@@ -1,4 +1,4 @@
-import { Mail, Clock } from "lucide-react";
+import { Mail, Clock, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import GlassCard from "@/components/GlassCard";
 

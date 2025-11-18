@@ -1,4 +1,4 @@
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import GlassCard from "@/components/GlassCard";
 
@@ -29,15 +29,15 @@ export default function Projects() {
               </div>
 
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-4" data-testid="text-project-title">
-                Vibe Coding
+                Firebase Realtime Database Fetcher and Editor
               </h2>
 
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed" data-testid="text-project-description">
-                A modern and interactive coding platform designed to enhance the learning experience. Built with cutting-edge technologies to provide a seamless and engaging environment for developers.
+                A comprehensive web application for managing Firebase Realtime Database with an intuitive interface. Features include real-time data fetching, editing capabilities, and secure authentication. Built to streamline database operations with a beautiful, modern UI.
               </p>
 
               <div className="flex flex-wrap gap-2 mb-8">
-                {["React", "TypeScript", "Node.js", "Express", "TailwindCSS", "Firebase"].map((tech) => (
+                {["React", "TypeScript", "Firebase", "TailwindCSS", "Realtime Database"].map((tech) => (
                   <span
                     key={tech}
                     className="px-4 py-2 text-sm font-medium rounded-full backdrop-blur-md bg-primary/10 text-primary border border-primary/20"
@@ -59,17 +59,6 @@ export default function Projects() {
                     View Live
                   </Button>
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="backdrop-blur-md bg-background/50 hover:bg-background/80 border-primary/30 hover:border-primary/50"
-                    data-testid="button-github"
-                  >
-                    <Github className="mr-2 h-5 w-5" />
-                    GitHub
-                  </Button>
-                </a>
               </div>
             </div>
 
@@ -78,12 +67,12 @@ export default function Projects() {
                 <div className="absolute -inset-2 bg-gradient-to-r from-primary via-accent to-purple-500 rounded-2xl blur-xl opacity-50 group-hover/image:opacity-75 transition duration-300" />
                 <div className="relative rounded-2xl overflow-hidden border-2 border-primary/20 shadow-glow-lg">
                   <img
-                    src="https://q-firebase-cn8y.onrender.com/og-image.png"
-                    alt="Vibe Coding Platform"
+                    src="/attached_assets/screenshot-1763478771499.png"
+                    alt="Firebase Realtime Database Fetcher and Editor"
                     className="w-full h-auto"
                     data-testid="img-project"
                     onError={(e) => {
-                      e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%23a855f7'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='48' fill='white'%3EVibe Coding%3C/text%3E%3C/svg%3E";
+                      e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%23a855f7'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='32' fill='white'%3EFirebase RTDB%3C/text%3E%3C/svg%3E";
                     }}
                   />
                 </div>

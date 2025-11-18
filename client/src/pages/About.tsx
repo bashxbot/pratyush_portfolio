@@ -5,24 +5,24 @@ import profileImage from "@assets/generated_images/Professional_profile_placehol
 export default function About() {
   const timeline = [
     {
+      year: "2025",
+      title: "Expert Vibe Coder",
+      description: "Became expert Vibe Coder, seeking for opportunities",
+    },
+    {
       year: "2024",
-      title: "Senior Developer & Design Lead",
-      description: "Leading innovative projects and mentoring creative teams",
+      title: "Expert Prompt Engineer",
+      description: "Became expert prompt engineer, mastering AI-assisted development",
+    },
+    {
+      year: "2023",
+      title: "Started Coding with AI",
+      description: "Started coding with AI tools and technologies",
     },
     {
       year: "2022",
-      title: "Full-Stack Developer",
-      description: "Built scalable applications for diverse clients worldwide",
-    },
-    {
-      year: "2020",
-      title: "Frontend Specialist",
-      description: "Focused on creating exceptional user experiences",
-    },
-    {
-      year: "2018",
-      title: "Started Creative Journey",
-      description: "Began exploring the intersection of code and design",
+      title: "Started Learning",
+      description: "Started learning Python and basics of websites",
     },
   ];
 

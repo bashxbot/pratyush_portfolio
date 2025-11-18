@@ -47,25 +47,11 @@ export default function Home() {
 
   const featuredProjects = [
     {
-      title: "Vibe Coding",
-      description: "Modern interactive coding platform for enhanced learning",
-      tech: ["React", "TypeScript", "Firebase"],
+      title: "Firebase Realtime Database Fetcher and Editor",
+      description: "A comprehensive web application for managing Firebase Realtime Database with an intuitive interface. Features real-time data fetching, editing capabilities, and secure authentication.",
+      tech: ["React", "TypeScript", "Firebase", "TailwindCSS", "Realtime Database"],
       gradient: "from-primary/20 to-purple-500/20",
       link: "https://q-firebase-cn8y.onrender.com",
-    },
-    {
-      title: "E-Commerce Platform",
-      description: "Seamless shopping experience with advanced features",
-      tech: ["Next.js", "Node.js", "PostgreSQL"],
-      gradient: "from-accent/20 to-cyan-500/20",
-      link: "#",
-    },
-    {
-      title: "Creative Portfolio",
-      description: "Immersive portfolio showcasing creative work",
-      tech: ["React", "Framer Motion", "Three.js"],
-      gradient: "from-purple-500/20 to-pink-500/20",
-      link: "#",
     },
   ];
 
@@ -103,6 +89,10 @@ export default function Home() {
               </span>
               <br />
               <span className="text-foreground">& Designer</span>
+              <br />
+              <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent animate-glow-pulse">
+                and Expert Vibe Coder
+              </span>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed" data-testid="text-hero-description">
@@ -180,7 +170,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 max-w-2xl mx-auto">
             {featuredProjects.map((project, index) => (
               <a
                 key={project.title}

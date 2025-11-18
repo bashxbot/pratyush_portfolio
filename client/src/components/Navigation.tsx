@@ -66,11 +66,13 @@ export default function Navigation() {
                   </Button>
                 </Link>
               ))}
+            </div>
+
+            <div className="flex items-center gap-2">
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={toggleTheme}
-                className="ml-2"
                 data-testid="button-theme-toggle"
               >
                 {theme === "light" ? (
@@ -79,17 +81,16 @@ export default function Navigation() {
                   <Sun className="h-5 w-5" />
                 )}
               </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="md:hidden"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                data-testid="button-menu-toggle"
+              >
+                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </Button>
             </div>
-
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              data-testid="button-menu-toggle"
-            >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
           </div>
         </div>
       </nav>
