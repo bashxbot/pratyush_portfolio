@@ -142,12 +142,11 @@ export default function Home() {
             {skills.map((skill, index) => (
               <GlassCard
                 key={skill.title}
-                className="group animate-fade-in-up"
-                style={{ animationDelay: `${index * 100}ms` } as any}
+                className="stagger-item group text-center card-tilt hover:shadow-glow-lg transition-all duration-300"
                 testId={`card-skill-${skill.title.toLowerCase()}`}
               >
-                <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${skill.color} mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <skill.icon className="h-8 w-8 text-white" data-testid={`icon-${skill.title.toLowerCase()}`} />
+                <div className={`inline-flex p-6 rounded-3xl bg-gradient-to-br ${skill.color} mb-6 group-hover:scale-110 group-hover:shadow-glow-md animate-float transition-all duration-300`}>
+                  <skill.icon className="h-12 w-12 text-white" data-testid={`icon-skill-${skill.title.toLowerCase()}`} />
                 </div>
                 <h3 className="font-display text-2xl font-bold mb-3" data-testid={`text-skill-title-${skill.title.toLowerCase()}`}>{skill.title}</h3>
                 <p className="text-muted-foreground leading-relaxed" data-testid={`text-skill-description-${skill.title.toLowerCase()}`}>

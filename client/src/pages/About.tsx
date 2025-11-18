@@ -107,17 +107,12 @@ export default function About() {
             {timeline.map((item, index) => (
               <div
                 key={item.year}
-                className={`relative animate-fade-in-up ${
-                  index % 2 === 0 ? "md:pr-1/2 md:text-right" : "md:pl-1/2 md:ml-auto"
+                className={`relative mb-12 md:mb-16 stagger-item ${
+                  index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"
                 }`}
-                style={{ animationDelay: `${index * 100}ms` } as any}
               >
                 <GlassCard className="inline-block max-w-lg" testId={`card-timeline-${index}`}>
-                  <div className="absolute top-1/2 -translate-y-1/2 hidden md:block">
-                    <div className={`w-4 h-4 rounded-full bg-gradient-to-r from-primary to-accent shadow-glow-md ${
-                      index % 2 === 0 ? "-right-8" : "-left-8"
-                    }`} />
-                  </div>
+                  <div className={`absolute top-0 w-16 h-16 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center text-white font-bold shadow-glow-lg neon-pulse left-1/2 transform -translate-x-1/2 hidden md:flex`} />
                   <div className="text-sm font-bold text-primary mb-2" data-testid={`text-timeline-year-${index}`}>{item.year}</div>
                   <h3 className="font-display text-xl font-bold mb-2" data-testid={`text-timeline-title-${index}`}>{item.title}</h3>
                   <p className="text-muted-foreground leading-relaxed" data-testid={`text-timeline-description-${index}`}>{item.description}</p>

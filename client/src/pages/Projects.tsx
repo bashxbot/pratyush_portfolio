@@ -18,7 +18,7 @@ export default function Projects() {
 
       <section className="max-w-5xl mx-auto px-6 lg:px-8">
         <GlassCard
-          className="animate-fade-in-up group"
+          className="animate-fade-in-up group card-tilt"
           glow
           testId="card-project-vibe-coding"
         >
@@ -52,7 +52,7 @@ export default function Projects() {
                 <a href="https://q-firebase-cn8y.onrender.com" target="_blank" rel="noopener noreferrer">
                   <Button
                     size="lg"
-                    className="shadow-glow-md hover:shadow-glow-lg transition-all duration-300"
+                    className="ripple shadow-glow-md hover:shadow-glow-lg hover:scale-105 transition-all duration-300"
                     data-testid="button-view-live"
                   >
                     <ExternalLink className="mr-2 h-5 w-5" />
@@ -64,12 +64,12 @@ export default function Projects() {
 
             <div className="order-1 lg:order-2">
               <div className="relative group/image">
-                <div className="absolute -inset-2 bg-gradient-to-r from-primary via-accent to-purple-500 rounded-2xl blur-xl opacity-50 group-hover/image:opacity-75 transition duration-300" />
-                <div className="relative rounded-2xl overflow-hidden border-2 border-primary/20 shadow-glow-lg">
+                <div className="absolute -inset-2 gradient-border rounded-2xl blur-xl opacity-50 group-hover/image:opacity-100 transition-all duration-500" />
+                <div className="relative rounded-2xl overflow-hidden border-2 border-primary/20 shadow-glow-lg group-hover/image:shadow-glow-xl transition-all duration-300">
                   <img
-                    src="/sample1.png"
+                    src="sample1.png"
                     alt="Firebase Realtime Database Fetcher and Editor"
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-cover group-hover/image:scale-105 transition-transform duration-500"
                     data-testid="img-project"
                   />
                 </div>
