@@ -23,16 +23,16 @@ export default function Footer() {
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <h3 className="font-display text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Pratyush
             </h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">
+            <p className="text-muted-foreground text-sm leading-relaxed" data-testid="text-footer-description">
               Crafting exceptional digital experiences with cutting-edge technology and modern design aesthetics.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider">
+            <h4 className="font-display text-sm font-semibold text-foreground uppercase tracking-wider" data-testid="text-footer-quicklinks-title">
               Quick Links
             </h4>
             <div className="flex flex-wrap gap-x-6 gap-y-2">
@@ -50,7 +50,7 @@ export default function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider">
+            <h4 className="font-display text-sm font-semibold text-foreground uppercase tracking-wider" data-testid="text-footer-connect-title">
               Connect
             </h4>
             <div className="flex gap-4">
@@ -72,7 +72,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-border/30">
-          <p className="text-center text-sm text-muted-foreground">
+          <p className="text-center text-sm text-muted-foreground" data-testid="text-footer-copyright">
             © {new Date().getFullYear()} Pratyush. All rights reserved.
           </p>
         </div>

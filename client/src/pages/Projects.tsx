@@ -73,10 +73,10 @@ export default function Projects() {
     <div className="min-h-screen pt-32 pb-16">
       <section className="max-w-7xl mx-auto px-6 lg:px-8 mb-16">
         <div className="text-center animate-fade-in">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Featured <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Projects</span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed" data-testid="text-projects-hero-description">
             A curated collection of projects showcasing my expertise in development, design, and creative problem-solving
           </p>
         </div>
@@ -138,8 +138,8 @@ export default function Projects() {
               </div>
 
               <div className="flex-1 flex flex-col">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed flex-1">
+                <h3 className="font-display text-xl font-bold mb-2" data-testid={`text-project-title-${index}`}>{project.title}</h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed flex-1" data-testid={`text-project-description-${index}`}>
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -147,6 +147,7 @@ export default function Projects() {
                     <span
                       key={tech}
                       className="px-3 py-1 text-xs font-medium rounded-full backdrop-blur-md bg-primary/10 text-primary border border-primary/20"
+                      data-testid={`badge-tech-${tech.toLowerCase().replace(/\./g, '-')}`}
                     >
                       {tech}
                     </span>

@@ -86,10 +86,10 @@ export default function Services() {
     <div className="min-h-screen pt-32 pb-16">
       <section className="max-w-7xl mx-auto px-6 lg:px-8 mb-24 md:mb-32">
         <div className="text-center animate-fade-in">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Services <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">&amp; Expertise</span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed" data-testid="text-services-hero-description">
             Comprehensive solutions tailored to your needs, from concept to deployment and beyond
           </p>
         </div>
@@ -105,11 +105,11 @@ export default function Services() {
               testId={`card-service-${service.title.toLowerCase().replace(/\s+/g, "-")}`}
             >
               <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${service.color} mb-6 group-hover:scale-110 transition-transform duration-300 self-start`}>
-                <service.icon className="h-8 w-8 text-white" />
+                <service.icon className="h-8 w-8 text-white" data-testid={`icon-service-${service.title.toLowerCase().replace(/\s+/g, '-')}`} />
               </div>
 
-              <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
-              <p className="text-muted-foreground mb-6 leading-relaxed flex-1">
+              <h3 className="font-display text-2xl font-bold mb-3" data-testid={`text-service-title-${service.title.toLowerCase().replace(/\s+/g, '-')}`}>{service.title}</h3>
+              <p className="text-muted-foreground mb-6 leading-relaxed flex-1" data-testid={`text-service-description-${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
                 {service.description}
               </p>
 
@@ -128,10 +128,10 @@ export default function Services() {
 
       <section className="max-w-7xl mx-auto px-6 lg:px-8 mb-24 md:mb-32">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             My Process
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-process-description-intro">
             A proven approach that delivers exceptional results every time
           </p>
         </div>
@@ -151,8 +151,8 @@ export default function Services() {
                     <span className="text-lg font-bold text-white">{item.step}</span>
                   </div>
                   <div className="pt-8">
-                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <h3 className="font-display text-xl font-bold mb-2" data-testid={`text-process-title-${index}`}>{item.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed" data-testid={`text-process-description-${index}`}>
                       {item.description}
                     </p>
                   </div>
@@ -165,10 +165,10 @@ export default function Services() {
 
       <section className="max-w-4xl mx-auto px-6 lg:px-8">
         <GlassCard glow className="text-center animate-fade-in" testId="card-cta">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Ready to Get Started?
           </h2>
-          <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-2xl mx-auto" data-testid="text-services-cta-description">
             Let's discuss your project and explore how we can work together to achieve your goals.
           </p>
           <Link href="/contact">

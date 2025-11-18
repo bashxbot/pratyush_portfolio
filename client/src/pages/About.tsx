@@ -58,17 +58,17 @@ export default function About() {
       <section className="max-w-7xl mx-auto px-6 lg:px-8 mb-24 md:mb-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="animate-fade-in order-2 lg:order-1">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               About <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Pratyush</span>
             </h1>
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
-              <p>
+              <p data-testid="text-about-intro-1">
                 I'm a creative developer and designer passionate about crafting exceptional digital experiences that blend aesthetic beauty with functional excellence.
               </p>
-              <p>
+              <p data-testid="text-about-intro-2">
                 With a unique combination of technical expertise and creative vision, I transform complex ideas into elegant solutions that users love. My approach emphasizes attention to detail, modern design principles, and cutting-edge technology.
               </p>
-              <p>
+              <p data-testid="text-about-intro-3">
                 Whether it's building scalable web applications, designing immersive user interfaces, or optimizing performance, I'm dedicated to pushing boundaries and exceeding expectations.
               </p>
             </div>
@@ -92,10 +92,10 @@ export default function About() {
 
       <section className="max-w-7xl mx-auto px-6 lg:px-8 mb-24 md:mb-32">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             My Journey
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-journey-description">
             A timeline of growth, learning, and creative evolution
           </p>
         </div>
@@ -118,9 +118,9 @@ export default function About() {
                       index % 2 === 0 ? "-right-8" : "-left-8"
                     }`} />
                   </div>
-                  <div className="text-sm font-bold text-primary mb-2">{item.year}</div>
-                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                  <div className="text-sm font-bold text-primary mb-2" data-testid={`text-timeline-year-${index}`}>{item.year}</div>
+                  <h3 className="font-display text-xl font-bold mb-2" data-testid={`text-timeline-title-${index}`}>{item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed" data-testid={`text-timeline-description-${index}`}>{item.description}</p>
                 </GlassCard>
               </div>
             ))}
@@ -130,10 +130,10 @@ export default function About() {
 
       <section className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             Core Values
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-values-description">
             The principles that guide my work and creative process
           </p>
         </div>
@@ -147,10 +147,10 @@ export default function About() {
               testId={`card-value-${value.title.toLowerCase()}`}
             >
               <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${value.color} mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                <value.icon className="h-8 w-8 text-white" />
+                <value.icon className="h-8 w-8 text-white" data-testid={`icon-value-${value.title.toLowerCase()}`} />
               </div>
-              <h3 className="text-2xl font-bold mb-3">{value.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <h3 className="font-display text-2xl font-bold mb-3" data-testid={`text-value-title-${value.title.toLowerCase()}`}>{value.title}</h3>
+              <p className="text-muted-foreground leading-relaxed" data-testid={`text-value-description-${value.title.toLowerCase()}`}>
                 {value.description}
               </p>
             </GlassCard>

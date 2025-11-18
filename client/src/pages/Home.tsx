@@ -89,12 +89,12 @@ export default function Home() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <div className="animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md bg-primary/10 border border-primary/20 mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md bg-primary/10 border border-primary/20 mb-8" data-testid="badge-availability">
               <Sparkles className="h-4 w-4 text-primary animate-glow-pulse" />
-              <span className="text-sm font-medium text-primary">Available for new projects</span>
+              <span className="text-sm font-medium text-primary" data-testid="text-availability">Available for new projects</span>
             </div>
 
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
               <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-glow-pulse">
                 Creative Developer
               </span>
@@ -102,7 +102,7 @@ export default function Home() {
               <span className="text-foreground">& Designer</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed" data-testid="text-hero-description">
               Transforming ideas into exceptional digital experiences through innovative design and cutting-edge technology
             </p>
 
@@ -137,10 +137,10 @@ export default function Home() {
       <section className="py-24 md:py-32 relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               What I Do
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-skills-description">
               Combining technical expertise with creative vision to deliver outstanding results
             </p>
           </div>
@@ -154,10 +154,10 @@ export default function Home() {
                 testId={`card-skill-${skill.title.toLowerCase()}`}
               >
                 <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${skill.color} mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <skill.icon className="h-8 w-8 text-white" />
+                  <skill.icon className="h-8 w-8 text-white" data-testid={`icon-${skill.title.toLowerCase()}`} />
                 </div>
-                <h3 className="text-2xl font-bold mb-3">{skill.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <h3 className="font-display text-2xl font-bold mb-3" data-testid={`text-skill-title-${skill.title.toLowerCase()}`}>{skill.title}</h3>
+                <p className="text-muted-foreground leading-relaxed" data-testid={`text-skill-description-${skill.title.toLowerCase()}`}>
                   {skill.description}
                 </p>
               </GlassCard>
@@ -169,10 +169,10 @@ export default function Home() {
       <section className="py-24 md:py-32 relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               Featured Work
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-projects-description">
               A selection of recent projects that showcase my skills and passion
             </p>
           </div>
@@ -188,8 +188,8 @@ export default function Home() {
                 <div className={`w-full h-48 rounded-2xl bg-gradient-to-br ${project.gradient} mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300`}>
                   <div className="text-6xl font-bold text-white/10">{project.title.charAt(0)}</div>
                 </div>
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
+                <h3 className="font-display text-xl font-bold mb-2" data-testid={`text-project-title-${index}`}>{project.title}</h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed" data-testid={`text-project-description-${index}`}>
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -197,6 +197,7 @@ export default function Home() {
                     <span
                       key={tech}
                       className="px-3 py-1 text-xs font-medium rounded-full backdrop-blur-md bg-primary/10 text-primary border border-primary/20"
+                      data-testid={`badge-tech-${tech.toLowerCase().replace(/\./g, '-')}`}
                     >
                       {tech}
                     </span>
@@ -224,13 +225,13 @@ export default function Home() {
       <section className="py-24 md:py-32 relative">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <GlassCard glow className="animate-fade-in" testId="card-cta">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               Let's Create Something
               <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Amazing Together
               </span>
             </h2>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed" data-testid="text-cta-description">
               Ready to bring your vision to life? Let's discuss your project and create an exceptional digital experience.
             </p>
             <Link href="/contact">
