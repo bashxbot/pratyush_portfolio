@@ -78,19 +78,19 @@ export default function Home() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <div className="animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md bg-primary/10 border-2 border-primary/40 mb-8 mt-16 border-glow-animate" data-testid="badge-availability">
-              <Sparkles className="h-4 w-4 text-primary animate-glow-pulse" />
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md bg-primary/10 border border-primary/20 mb-8 mt-16" data-testid="badge-availability">
+              <Sparkles className="h-4 w-4 text-primary" />
               <span className="text-sm font-medium text-primary" data-testid="text-availability">Available for new projects</span>
             </div>
 
             <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-glow-pulse">
+              <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
                 Creative Developer
               </span>
               <br />
               <span className="text-foreground">& Designer</span>
               <br />
-              <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent animate-glow-pulse">
+              <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">
                 and Expert Vibe Coder
               </span>
             </h1>
@@ -103,7 +103,7 @@ export default function Home() {
               <Link href="/contact">
                 <Button
                   size="lg"
-                  className="group relative overflow-hidden px-8 py-6 text-lg shadow-glow-md hover:shadow-glow-lg transition-all duration-300"
+                  className="magnetic group relative overflow-hidden px-8 py-6 text-lg transition-all duration-300"
                   data-testid="button-get-in-touch"
                 >
                   <span className="relative z-10 flex items-center gap-2">
@@ -116,7 +116,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="px-8 py-6 text-lg backdrop-blur-md bg-background/50 hover:bg-background/80 border-primary/30 hover:border-primary/50 transition-all duration-300"
+                  className="magnetic px-8 py-6 text-lg backdrop-blur-md bg-background/50 hover:bg-background/80 border-primary/30 hover:border-primary/50 transition-all duration-300"
                   data-testid="button-view-work"
                 >
                   View My Work
@@ -142,10 +142,10 @@ export default function Home() {
             {skills.map((skill, index) => (
               <GlassCard
                 key={skill.title}
-                className="group text-center card-tilt hover:shadow-glow-lg transition-all duration-300"
+                className="group text-center magnetic transition-all duration-300"
                 testId={`card-skill-${skill.title.toLowerCase()}`}
               >
-                <div className={`inline-flex p-6 rounded-3xl bg-gradient-to-br ${skill.color} mb-6 group-hover:scale-110 group-hover:shadow-glow-md animate-float transition-all duration-300`}>
+                <div className={`inline-flex p-6 rounded-3xl bg-gradient-to-br ${skill.color} mb-6 transition-transform duration-300`}>
                   <skill.icon className="h-12 w-12 text-white" data-testid={`icon-skill-${skill.title.toLowerCase()}`} />
                 </div>
                 <h3 className="font-display text-2xl font-bold mb-3" data-testid={`text-skill-title-${skill.title.toLowerCase()}`}>{skill.title}</h3>
@@ -179,18 +179,9 @@ export default function Home() {
                 className="block"
               >
                 <GlassCard
-                  className="group animate-fade-in-up overflow-hidden h-full hover:shadow-glow-lg transition-all duration-300 cursor-pointer"
-                  style={{ animationDelay: `${index * 100}ms` } as any}
+                  className="group magnetic overflow-hidden h-full transition-all duration-300 cursor-pointer"
                   testId={`card-project-${index}`}
                 >
-                  <div className="w-full h-48 rounded-2xl mb-6 overflow-hidden group-hover:scale-105 transition-transform duration-300">
-                    <img
-                      src="/sample1.png"
-                      alt={project.title}
-                      className="w-full h-auto"
-                      data-testid="img-featured-project"
-                    />
-                  </div>
                   <h3 className="font-display text-xl font-bold mb-2" data-testid={`text-project-title-${index}`}>{project.title}</h3>
                   <p className="text-muted-foreground mb-4 leading-relaxed" data-testid={`text-project-description-${index}`}>
                     {project.description}

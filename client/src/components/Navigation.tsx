@@ -42,7 +42,7 @@ export default function Navigation() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
             <Link href="/" data-testid="link-home">
-              <span className="font-display text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent hover:opacity-80 transition-opacity cursor-pointer">
+              <span className="font-display text-2xl md:text-3xl font-bold text-foreground hover:text-primary transition-colors cursor-pointer">
                 Pratyush
               </span>
             </Link>
@@ -61,7 +61,7 @@ export default function Navigation() {
                   >
                     {link.label}
                     {location === link.path && (
-                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent animate-glow-pulse" />
+                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-0.5 bg-primary" />
                     )}
                   </Button>
                 </Link>

@@ -240,91 +240,12 @@
     }
   }
 
-  @keyframes pulse-glow {
-    0%, 100% {
-      opacity: 0.5;
-    }
-    50% {
-      opacity: 0.8;
-    }
-  }
-
-  @keyframes gradient-shift {
-    0%, 100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-
-  @keyframes neonRipple {
-    0% {
-      width: 20px;
-      height: 20px;
-      opacity: 1;
-    }
-    100% {
-      width: 100px;
-      height: 100px;
-      opacity: 0;
-    }
-  }
-
-  @keyframes typewriter {
-    from {
-      width: 0;
-    }
-    to {
-      width: 100%;
-    }
-  }
-
-  @keyframes blink {
-    50% {
-      border-color: transparent;
-    }
-  }
-
-  .neon-ripple {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2px solid hsl(var(--primary));
-    box-shadow: 0 0 20px hsl(var(--primary)), 0 0 40px hsl(var(--accent));
-    animation: neonRipple 0.8s ease-out forwards;
-  }
-
-  .typewriter-text {
-    overflow: hidden;
-    border-right: 3px solid hsl(var(--primary));
-    white-space: nowrap;
-    animation: typewriter 3s steps(40) 1s forwards, blink 0.75s step-end infinite;
-  }
-
   .animate-fade-in {
     animation: fadeIn 0.6s ease-out forwards;
   }
 
   .animate-fade-in-up {
     animation: fadeInUp 0.6s ease-out forwards;
-  }
-
-  .animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
-  }
-
-  .animate-float {
-    animation: float 3s ease-in-out infinite;
   }
 }
 
@@ -462,94 +383,7 @@
     }
   }
 
-  /* 3D Tilt Card Effect */
-  .card-tilt {
-    transform-style: preserve-3d;
-    transition: transform 0.3s ease-out;
-  }
-
-  .card-tilt:hover {
-    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02);
-  }
-
-  /* Gradient Border Animation */
-  .gradient-border {
-    position: relative;
-    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--primary)));
-    background-size: 200% 200%;
-    animation: gradient-shift 3s ease infinite;
-  }
-
-  /* Neon Glow Pulse */
-  .neon-pulse {
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.5), 0 0 40px hsl(var(--primary) / 0.3);
-    animation: pulse-glow 2s ease-in-out infinite;
-  }
-
-  /* Smooth Scale on Hover */
-  .scale-hover {
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .scale-hover:hover {
-    transform: scale(1.05);
-  }
-
-  /* Ripple Effect */
-  .ripple {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .ripple::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-  }
-
-  .ripple:active::after {
-    width: 300px;
-    height: 300px;
-  }
-
-  /* Staggered Reveal Animation */
-  .stagger-item {
-    opacity: 0;
-    animation: fadeInUp 0.6s ease-out forwards;
-  }
-
-  .stagger-item:nth-child(1) { animation-delay: 0.1s; }
-  .stagger-item:nth-child(2) { animation-delay: 0.2s; }
-  .stagger-item:nth-child(3) { animation-delay: 0.3s; }
-  .stagger-item:nth-child(4) { animation-delay: 0.4s; }
-  .stagger-item:nth-child(5) { animation-delay: 0.5s; }
-  .stagger-item:nth-child(6) { animation-delay: 0.6s; }
-
-  /* Magnetic Button Effect */
-  .magnetic-button {
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  /* Animated Border Glow */
-  @keyframes borderGlow {
-    0%, 100% {
-      box-shadow: 0 0 10px hsl(var(--primary) / 0.5), 0 0 20px hsl(var(--accent) / 0.3);
-    }
-    50% {
-      box-shadow: 0 0 20px hsl(var(--primary) / 0.8), 0 0 40px hsl(var(--accent) / 0.5);
-    }
-  }
-
-  .border-glow-animate {
-    animation: borderGlow 3s ease-in-out infinite;
-  }
+  
 
   /* Grain Overlay */
   body::after {

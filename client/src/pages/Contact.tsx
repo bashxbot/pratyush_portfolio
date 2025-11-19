@@ -7,7 +7,7 @@ export default function Contact() {
     {
       icon: Mail,
       title: "Email",
-      details: "hello@pratyush.dev",
+      details: "pratyushdev1@outlook.com",
       color: "from-primary to-purple-500",
     },
     {
@@ -58,10 +58,10 @@ export default function Contact() {
           <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-2xl mx-auto">
             Send me an email and let's discuss how we can work together to bring your ideas to life.
           </p>
-          <a href="mailto:hello@pratyush.dev">
+          <a href="mailto:pratyushdev1@outlook.com">
             <Button
               size="lg"
-              className="shadow-glow-md hover:shadow-glow-lg transition-all duration-300"
+              className="magnetic transition-all duration-300"
               data-testid="button-email"
             >
               Send Email

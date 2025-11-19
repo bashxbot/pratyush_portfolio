@@ -20,8 +20,7 @@ export default function GlassCard({
     <div
       className={cn(
         "rounded-3xl backdrop-blur-xl bg-card/40 border border-border/50 p-6 md:p-8 shadow-glass transition-all duration-300",
-        hover && "hover:-translate-y-1 hover:shadow-glow-sm",
-        glow && "shadow-glow-sm border-glow-animate",
+        hover && "hover:-translate-y-1",
         className
       )}
       data-testid={testId}

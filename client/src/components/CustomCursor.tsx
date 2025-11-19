@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 
 export default function CustomCursor() {
@@ -15,6 +14,30 @@ export default function CustomCursor() {
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
+
+      const target = e.target as HTMLElement;
+      const magnetic = target.closest(".magnetic") as HTMLElement;
+
+      if (magnetic) {
+        const rect = magnetic.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const distanceX = e.clientX - centerX;
+        const distanceY = e.clientY - centerY;
+        const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+
+        if (distance < 150) {
+          const strength = (150 - distance) / 150;
+          const moveX = (distanceX / distance) * strength * 8;
+          const moveY = (distanceY / distance) * strength * 8;
+          magnetic.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        } else {
+          magnetic.style.transform = "";
+        }
+      }
+
+      const isClickable = target.tagName === 'A' || target.tagName === 'BUTTON' || target.closest('a') || target.closest('button');
+      setCursorSize(isClickable ? 30 : 10);
     };
 
     const handleMouseDown = () => {
@@ -30,25 +53,10 @@ export default function CustomCursor() {
       setIsClicking(false);
     };
 
-    const handleMouseEnter = (e: Event) => {
-      const target = e.target as HTMLElement;
-      if (target.tagName === 'A' || target.tagName === 'BUTTON' || target.closest('a') || target.closest('button')) {
-        setCursorSize(30);
-      }
-    };
-
-    const handleMouseLeave = () => {
-      setCursorSize(10);
-    };
-
     if (!isMobile) {
       window.addEventListener('mousemove', handleMouseMove);
       window.addEventListener('mousedown', handleMouseDown);
       window.addEventListener('mouseup', handleMouseUp);
-      document.querySelectorAll('a, button').forEach(el => {
-        el.addEventListener('mouseenter', handleMouseEnter);
-        el.addEventListener('mouseleave', handleMouseLeave);
-      });
     }
 
     const handleTouchStart = (e: TouchEvent) => {
