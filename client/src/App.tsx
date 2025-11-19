@@ -18,22 +18,10 @@ import { useEffect, useState } from "react";
 
 function Router() {
   const [location] = useLocation();
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
     window.scrollTo(0, 0);
-
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
   }, [location]);
-
-  if (isLoading) {
-    return <LoadingScreen />;
-  }
 
   return (
     <Switch>
@@ -66,7 +54,10 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
         <TooltipProvider>
-          <div className="min-h-screen bg-background text-foreground" style={{ cursor: 'none' }}>
+          <div
+            className="min-h-screen bg-background text-foreground"
+            style={{ cursor: "none" }}
+          >
             <CustomCursor />
             <Navigation />
             <Router />
