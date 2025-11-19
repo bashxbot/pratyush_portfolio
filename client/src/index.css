@@ -4,11 +4,11 @@
 
 /* LIGHT MODE */
 :root {
-  --button-outline: rgba(0,0,0, .10);
-  --badge-outline: rgba(0,0,0, .05);
+  --button-outline: rgba(0, 0, 0, .10);
+  --badge-outline: rgba(0, 0, 0, .05);
   --opaque-button-border-intensity: -8;
-  --elevate-1: rgba(0,0,0, .03);
-  --elevate-2: rgba(0,0,0, .08);
+  --elevate-1: rgba(0, 0, 0, .03);
+  --elevate-2: rgba(0, 0, 0, .08);
   --background: 245 15% 97%;
   --foreground: 245 20% 12%;
   --border: 245 12% 88%;
@@ -58,7 +58,7 @@
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 
-/* Fallback for older browsers */
+  /* Fallback for older browsers */
   --sidebar-primary-border: hsl(var(--sidebar-primary));
   --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 
@@ -88,11 +88,11 @@
 }
 
 .dark {
-  --button-outline: rgba(255,255,255, .10);
-  --badge-outline: rgba(255,255,255, .05);
+  --button-outline: rgba(255, 255, 255, .10);
+  --badge-outline: rgba(255, 255, 255, .05);
   --opaque-button-border-intensity: 9;
-  --elevate-1: rgba(255,255,255, .04);
-  --elevate-2: rgba(255,255,255, .09);
+  --elevate-1: rgba(255, 255, 255, .04);
+  --elevate-2: rgba(255, 255, 255, .09);
   --background: 245 25% 6%;
   --foreground: 245 15% 92%;
   --border: 245 20% 20%;
@@ -136,7 +136,7 @@
   --shadow-xl: 0px 2px 0px 0px hsl(240 6% 0% / 0.35), 0px 8px 10px -1px hsl(240 6% 0% / 0.45);
   --shadow-2xl: 0px 2px 0px 0px hsl(240 6% 0% / 0.40);
 
-/* Fallback for older browsers */
+  /* Fallback for older browsers */
   --sidebar-primary-border: hsl(var(--sidebar-primary));
   --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 
@@ -191,14 +191,14 @@
   }
 
   .dark body::before {
-    background: 
+    background:
       radial-gradient(circle at 20% 30%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
       radial-gradient(circle at 80% 70%, rgba(34, 211, 238, 0.08) 0%, transparent 50%),
       radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
   }
 
   body:not(.dark)::before {
-    background: 
+    background:
       radial-gradient(circle at 20% 30%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
       radial-gradient(circle at 80% 70%, rgba(34, 211, 238, 0.15) 0%, transparent 50%),
       radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.10) 0%, transparent 50%),
@@ -206,15 +206,20 @@
   }
 
   @keyframes backgroundMove {
-    0%, 100% {
+
+    0%,
+    100% {
       transform: translate(0, 0) scale(1);
     }
+
     25% {
       transform: translate(5%, -5%) scale(1.05);
     }
+
     50% {
       transform: translate(-5%, 5%) scale(1);
     }
+
     75% {
       transform: translate(5%, 5%) scale(1.05);
     }
@@ -225,6 +230,7 @@
       opacity: 0;
       transform: translateY(30px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -235,6 +241,7 @@
     from {
       opacity: 0;
     }
+
     to {
       opacity: 1;
     }
@@ -383,7 +390,7 @@
     }
   }
 
-  
+
 
   /* Grain Overlay */
   body::after {
@@ -398,4 +405,36 @@
     opacity: 0.03;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
+}
+
+@keyframes blob {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  25% {
+    transform: translate(20px, -20px) scale(1.1);
+  }
+
+  50% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+
+  75% {
+    transform: translate(20px, 20px) scale(1.05);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
 }

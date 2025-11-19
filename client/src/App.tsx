@@ -7,20 +7,33 @@ import { ThemeProvider } from "@/contexts/ThemeContext";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
+import LoadingScreen from "@/components/LoadingScreen";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Projects from "@/pages/Projects";
 import Services from "@/pages/Services";
 import Contact from "@/pages/Contact";
 import NotFound from "@/pages/not-found";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function Router() {
   const [location] = useLocation();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     window.scrollTo(0, 0);
+
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
   }, [location]);
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <Switch>
@@ -35,6 +48,20 @@ function Router() {
 }
 
 function App() {
+  const [initialLoading, setInitialLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setInitialLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (initialLoading) {
+    return <LoadingScreen />;
+  }
+
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>

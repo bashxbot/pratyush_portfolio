@@ -8,21 +8,25 @@ export default function About() {
       year: "2022",
       title: "Started Learning",
       description: "Started learning Python and basics of websites",
+      color: "from-primary to-purple-500",
     },
     {
       year: "2023",
       title: "Started Coding with AI",
       description: "Started coding with AI tools and technologies",
+      color: "from-accent to-cyan-500",
     },
     {
       year: "2024",
       title: "Expert Prompt Engineer",
       description: "Became expert prompt engineer, mastering AI-assisted development",
+      color: "from-purple-500 to-pink-500",
     },
     {
       year: "2025",
       title: "Expert Vibe Coder",
       description: "Became expert Vibe Coder, seeking for opportunities",
+      color: "from-pink-500 to-orange-500",
     },
   ];
 
@@ -100,26 +104,25 @@ export default function About() {
           </p>
         </div>
 
-        <div className="relative">
-          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-purple-500 transform -translate-x-1/2 hidden md:block" />
-
-          <div className="space-y-12">
-            {timeline.map((item, index) => (
-              <div
-                key={item.year}
-                className={`relative mb-12 md:mb-16 stagger-item ${
-                  index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"
-                }`}
-              >
-                <GlassCard className="inline-block max-w-lg" testId={`card-timeline-${index}`}>
-                  <div className={`absolute top-0 w-16 h-16 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center text-white font-bold shadow-glow-lg neon-pulse left-1/2 transform -translate-x-1/2 hidden md:flex`} />
-                  <div className="text-sm font-bold text-primary mb-2" data-testid={`text-timeline-year-${index}`}>{item.year}</div>
-                  <h3 className="font-display text-xl font-bold mb-2" data-testid={`text-timeline-title-${index}`}>{item.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed" data-testid={`text-timeline-description-${index}`}>{item.description}</p>
-                </GlassCard>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {timeline.map((item, index) => (
+            <GlassCard
+              key={item.year}
+              className="relative overflow-hidden group"
+              testId={`card-timeline-${index}`}
+            >
+              <div className={`absolute top-0 left-0 w-2 h-full bg-gradient-to-b ${item.color}`} />
+              <div className="pl-6">
+                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <span className="text-white font-bold text-lg">{item.year.slice(-2)}</span>
+                </div>
+                <div className="text-sm font-bold text-primary mb-2" data-testid={`text-timeline-year-${index}`}>{item.year}</div>
+                <h3 className="font-display text-xl font-bold mb-2" data-testid={`text-timeline-title-${index}`}>{item.title}</h3>
+                <p className="text-muted-foreground leading-relaxed" data-testid={`text-timeline-description-${index}`}>{item.description}</p>
               </div>
-            ))}
-          </div>
+              <div className={`absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl ${item.color} opacity-10 rounded-tl-full`} />
+            </GlassCard>
+          ))}
         </div>
       </section>
 
