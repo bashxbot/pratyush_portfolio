@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 
 export default function LoadingScreen() {
@@ -6,7 +7,7 @@ export default function LoadingScreen() {
   useEffect(() => {
     // Apply dark theme immediately when loading screen mounts
     document.documentElement.classList.add("dark");
-
+    
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -42,17 +43,59 @@ export default function LoadingScreen() {
           </p>
         </div>
 
-        <div className="w-64 mx-auto">
-          <div className="h-1 bg-border/30 rounded-full overflow-hidden backdrop-blur-sm">
-            <div
-              className="h-full bg-gradient-to-r from-primary via-accent to-purple-500 transition-all duration-300 ease-out rounded-full"
-              style={{ width: `${progress}%` }}
-            >
-              <div className="w-full h-full bg-white/30 animate-pulse" />
+        <div className="flex flex-col items-center gap-4">
+          <div className="relative w-32 h-32">
+            {/* Background circle */}
+            <svg className="w-full h-full transform -rotate-90" viewBox="0 0 120 120">
+              <circle
+                cx="60"
+                cy="60"
+                r="54"
+                stroke="currentColor"
+                strokeWidth="8"
+                fill="none"
+                className="text-border/30"
+              />
+              {/* Progress circle */}
+              <circle
+                cx="60"
+                cy="60"
+                r="54"
+                stroke="url(#gradient)"
+                strokeWidth="8"
+                fill="none"
+                strokeLinecap="round"
+                strokeDasharray={`${2 * Math.PI * 54}`}
+                strokeDashoffset={`${2 * Math.PI * 54 * (1 - progress / 100)}`}
+                className="transition-all duration-300 ease-out"
+              />
+              <defs>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="hsl(var(--primary))" />
+                  <stop offset="50%" stopColor="hsl(var(--accent))" />
+                  <stop offset="100%" stopColor="rgb(168 85 247)" />
+                </linearGradient>
+              </defs>
+            </svg>
+            
+            {/* Center glow effect */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-20 h-20 bg-gradient-to-r from-primary/20 via-accent/20 to-purple-500/20 rounded-full blur-xl animate-pulse" />
+            </div>
+            
+            {/* Percentage text */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-2xl font-bold bg-gradient-to-r from-primary via-accent to-purple-500 bg-clip-text text-transparent">
+                {progress}%
+              </span>
             </div>
           </div>
-          <div className="mt-2 text-sm text-muted-foreground font-medium">
-            {progress}%
+
+          {/* Optional loading dots */}
+          <div className="flex gap-2">
+            <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+            <div className="w-2 h-2 bg-accent rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+            <div className="w-2 h-2 bg-purple-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
           </div>
         </div>
       </div>
