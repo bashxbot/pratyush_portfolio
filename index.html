@@ -31,21 +31,39 @@
   .fluid-shade { position: absolute; inset: 0; background: radial-gradient(120% 90% at 50% 45%, transparent 40%, rgba(0,0,0,0.55) 100%), linear-gradient(180deg, rgba(0,0,0,0.72) 0%, transparent 22%, transparent 70%, rgba(0,0,0,0.8) 100%); }
 
   /* nav */
+  /* nav */
   .nav-wrap { position: sticky; top: 16px; z-index: 20; margin: 16px 16px 0; }
-  nav { background: #0a0a0a; border: 1px solid #262626; border-radius: 28px; overflow: hidden; transition: border-radius 0.4s ease; }
-  nav.open { border-radius: 22px; }
+  nav {
+    position: relative;
+    background:
+      radial-gradient(120% 100% at 50% 0%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 80%),
+      rgba(10, 12, 18, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 28px;
+    overflow: hidden;
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.25),
+      0 16px 40px -10px rgba(0, 0, 0, 0.7);
+    transition: border-radius 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  }
+  nav.open {
+    border-radius: 24px;
+    border-color: rgba(255, 255, 255, 0.22);
+    background:
+      radial-gradient(85% 60% at 50% 0%, rgba(56, 189, 248, 0.16) 0%, rgba(37, 99, 235, 0.08) 45%, transparent 75%),
+      radial-gradient(100% 70% at 50% 100%, rgba(56, 189, 248, 0.12) 0%, rgba(37, 99, 235, 0.05) 50%, transparent 75%),
+      rgba(8, 10, 16, 0.82);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 0 rgba(56, 189, 248, 0.4),
+      0 24px 60px -12px rgba(0, 0, 0, 0.85),
+      0 0 35px -8px rgba(56, 189, 248, 0.2);
+  }
   .nav-top { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px 14px 22px; }
-  .wordmark { font-size: 16px; font-weight: 800; letter-spacing: -0.01em; }
+  .wordmark { font-size: 16px; font-weight: 800; letter-spacing: -0.01em; color: #fff; text-shadow: 0 0 16px rgba(56, 189, 248, 0.4); }
   .nav-right { display: flex; align-items: center; gap: 18px; }
-  .pill-btn { position: relative; display: inline-flex; align-items: center; gap: 8px; background: #1a1a1a; border: 1px solid #333; border-radius: 100px; padding: 6px 8px 6px 16px; font-size: 13px; font-weight: 600; color: #fff; text-decoration: none; overflow: hidden; z-index: 0; transition: color 0.4s ease, border-color 0.3s ease; }
-  .pill-btn::before { content: ''; position: absolute; inset: 0; background: #fff; transform: scaleX(0); transform-origin: left center; transition: transform 0.45s cubic-bezier(0.65,0,0.35,1); z-index: -1; }
-  .pill-btn:hover { color: #000; border-color: #555; }
-  .pill-btn:hover::before { transform: scaleX(1); }
-  .pill-btn .arrow { width: 24px; height: 24px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.4s ease; }
-  .pill-btn .arrow svg { width: 13px; height: 13px; }
-  .pill-btn .arrow svg path { stroke: #000; transition: stroke 0.4s ease; }
-  .pill-btn:hover .arrow { background: #000; }
-  .pill-btn:hover .arrow svg path { stroke: #fff; }
   .menu-label { font-size: 13px; color: #999; user-select: none; }
   .menu-label .close-text { display: none; }
   nav.open .menu-label .open-text { display: none; }
@@ -56,19 +74,57 @@
   .menu-btn:hover .bar { background: #fff; }
   .menu-btn.open .bar.top { top: 8px; transform: rotate(45deg); background: #fff; }
   .menu-btn.open .bar.bottom { top: 8px; transform: rotate(-45deg); background: #fff; }
-  .menu-panel { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.65,0,0.35,1); }
+  .menu-panel {
+    position: relative;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.65,0,0.35,1);
+  }
   nav.open .menu-panel { max-height: 420px; }
-  .menu-list { list-style: none; display: flex; flex-direction: column; padding: 8px 22px 20px; }
+  .menu-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65%;
+    height: 1px;
+    background: radial-gradient(ellipse at center, rgba(56, 189, 248, 0.8) 0%, rgba(255, 255, 255, 0.5) 30%, transparent 80%);
+    filter: blur(0.5px);
+  }
+  .menu-list { list-style: none; display: flex; flex-direction: column; padding: 12px 24px 20px; }
   .menu-list li { overflow: hidden; }
-  .menu-list a { display: inline-flex; align-items: center; gap: 14px; font-size: 26px; font-weight: 700; letter-spacing: -0.03em; color: #fff; text-decoration: none; padding: 8px 0; transform: translateY(100%); opacity: 0; }
+  .menu-list a {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    padding: 10px 0;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: color 0.25s ease, transform 0.25s ease, text-shadow 0.25s ease;
+  }
+  .menu-list a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(56, 189, 248, 0.85), 0 0 8px #ffffff;
+    transform: translateX(6px);
+  }
   nav.open .menu-list a { animation: rise-in 0.5s cubic-bezier(0.2,0.7,0.2,1) forwards; }
   nav.open .menu-list li:nth-child(1) a { animation-delay: 0.08s; }
   nav.open .menu-list li:nth-child(2) a { animation-delay: 0.14s; }
   nav.open .menu-list li:nth-child(3) a { animation-delay: 0.20s; }
   nav.open .menu-list li:nth-child(4) a { animation-delay: 0.26s; }
   @keyframes rise-in { to { transform: translateY(0); opacity: 1; } }
-  .menu-hr { height: 1px; background: rgba(255,255,255,0.08); margin: 0 22px; }
-  .menu-foot { display: flex; justify-content: space-between; padding: 14px 22px 18px; font-size: 12px; color: #666; }
+  .menu-hr {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18) 25%, rgba(56,189,248,0.5) 50%, rgba(255,255,255,0.18) 75%, transparent);
+    margin: 4px 22px 0;
+  }
+  .menu-foot { display: flex; justify-content: space-between; padding: 16px 24px 20px; font-size: 12px; color: rgba(255, 255, 255, 0.5); }
 
   /* hero centered */
   .body-grid { position: relative; z-index: 2; flex: 1; display: flex; }
@@ -78,35 +134,275 @@
   h1 .warp { filter: url(#heroWarp); }
   p.desc { margin-top: 32px; font-size: 17px; line-height: 1.6; color: #aaa; text-align: center; margin-left: auto; margin-right: auto; max-width: 600px; text-transform: uppercase; font-size: 12.5px; letter-spacing: 0.14em; line-height: 2; color: rgba(255,255,255,0.72); }
   .actions { margin-top: 44px; display: flex; align-items: center; gap: 24px; justify-content: center; }
-  .actions .pill-btn { font-size: 15px; padding: 10px 10px 10px 22px; }
-  .actions .pill-btn .arrow { width: 30px; height: 30px; }
-  .actions .pill-btn .arrow svg { width: 14px; height: 14px; }
-  .link { font-size: 14px; color: #aaa; text-decoration: underline; }
+  .link { font-size: 14px; color: #aaa; text-decoration: underline; transition: color 0.2s ease; }
   .link:hover { color: #fff; }
+
+  /* glass button with bottom illuminated reflection and arrow icon */
+  .glass-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 24px;
+    line-height: 1;
+    border-radius: 9999px;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    background:
+      radial-gradient(ellipse 65% 52% at 50% 106%, rgba(255, 255, 255, 0.44) 0%, rgba(255, 255, 255, 0.12) 38%, transparent 74%),
+      linear-gradient(180deg, rgba(38, 38, 42, 0.82) 0%, rgba(14, 14, 16, 0.94) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+      inset 0 -1px 0 0 rgba(255, 255, 255, 0.85),
+      inset 0 -10px 18px -5px rgba(255, 255, 255, 0.38),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.22),
+      0 14px 34px -6px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  }
+
+  .glass-btn span {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+  }
+
+  .glass-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 68%;
+    height: 1.5px;
+    background: radial-gradient(ellipse at 50% 100%, #ffffff 0%, rgba(255, 255, 255, 0.7) 40%, transparent 85%);
+    pointer-events: none;
+    transition: width 0.35s ease, opacity 0.35s ease;
+  }
+
+  .glass-btn:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.32);
+    box-shadow:
+      inset 0 -1px 0 0 #ffffff,
+      inset 0 -14px 26px -4px rgba(255, 255, 255, 0.52),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.35),
+      0 18px 42px -6px rgba(0, 0, 0, 0.85),
+      0 0 24px -2px rgba(255, 255, 255, 0.16);
+  }
+
+  .glass-btn:hover::after {
+    width: 82%;
+  }
+
+  .glass-btn:active {
+    transform: translateY(0);
+    box-shadow:
+      inset 0 -1px 0 0 rgba(255, 255, 255, 0.85),
+      inset 0 -8px 16px -4px rgba(255, 255, 255, 0.3),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+      0 8px 20px -4px rgba(0, 0, 0, 0.7);
+  }
+
+  .glass-btn .btn-arrow {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    display: inline-block;
+    transition: transform 0.25s ease;
+  }
+
+  .glass-btn:hover .btn-arrow {
+    transform: translateX(3px);
+  }
+
+  .glass-btn-sm {
+    padding: 7px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    gap: 7px;
+  }
+  .glass-btn-sm .btn-arrow {
+    width: 13px;
+    height: 13px;
+  }
+
   .meta-row { margin-top: 64px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.14); display: flex; gap: 56px; font-size: 13px; color: #999; max-width: none; justify-content: center; text-align: center; }
   .meta-row .row { display: flex; flex-direction: column; gap: 4px; align-items: center; }
   .meta-row .label { color: rgba(255,255,255,0.45); }
   .meta-row .value { color: #fff; }
 
-  /* coming soon — beam of light falling onto the headline */
-  .coming-soon { position: relative; z-index: 2; min-height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 96px 24px; border-top: 1px solid #1c1c1c; background: #000; overflow: hidden; }
-  .cs-light { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-  .cs-cone { position: absolute; top: -12%; left: 50%; width: min(560px, 84vw); height: 128%; transform: translateX(-50%); background: linear-gradient(180deg, rgba(178,150,255,0.34) 0%, rgba(140,110,255,0.14) 40%, rgba(120,95,255,0.05) 70%, transparent 92%); clip-path: polygon(44% 0, 56% 0, 100% 100%, 0 100%); filter: blur(26px); transform-origin: 50% 0; animation: beamSway 9s ease-in-out infinite alternate, beamBreathe 5s ease-in-out infinite; }
-  .cs-beam { position: absolute; top: -12%; left: 50%; width: min(190px, 26vw); height: 128%; transform: translateX(-50%); background: linear-gradient(180deg, rgba(236,226,255,0.8) 0%, rgba(196,178,255,0.38) 32%, rgba(168,142,255,0.14) 62%, transparent 90%); clip-path: polygon(41% 0, 59% 0, 90% 100%, 10% 100%); filter: blur(11px); transform-origin: 50% 0; animation: beamSway 7s ease-in-out infinite alternate-reverse, beamBreathe 4s ease-in-out infinite; }
-  .cs-core { position: absolute; top: -12%; left: 50%; width: min(64px, 11vw); height: 128%; transform: translateX(-50%); background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.8) 34%, rgba(232,220,255,0.3) 62%, transparent 90%); clip-path: polygon(28% 0, 72% 0, 100% 100%, 0 100%); filter: blur(5px); transform-origin: 50% 0; animation: beamSway 6s ease-in-out infinite alternate, beamBreathe 3.2s ease-in-out infinite; }
-  .cs-ray { position: absolute; top: -12%; left: 50%; width: 2px; height: 120%; background: linear-gradient(180deg, rgba(255,255,255,0.65), rgba(200,175,255,0.12) 60%, transparent); filter: blur(2px); opacity: 0.55; animation: beamBreathe 3.8s ease-in-out infinite; }
-  .cs-ray.l { transform: translateX(-50%) rotate(7deg); transform-origin: 50% 0; }
-  .cs-ray.r { transform: translateX(-50%) rotate(-7deg); transform-origin: 50% 0; animation-delay: 1.2s; }
-  .cs-source { position: absolute; top: -6%; left: 50%; width: min(300px, 54vw); height: 150px; transform: translateX(-50%); background: radial-gradient(ellipse at center, #ffffff 0%, rgba(214,194,255,0.55) 34%, rgba(170,145,255,0.16) 58%, transparent 75%); filter: blur(8px); animation: sourcePulse 4.5s ease-in-out infinite; }
-  .cs-pool { position: absolute; top: 60%; left: 50%; width: min(560px, 88vw); height: 260px; transform: translate(-50%, -50%); background: radial-gradient(ellipse at center, rgba(255,255,255,0.5) 0%, rgba(190,168,255,0.28) 34%, rgba(140,112,255,0.1) 58%, transparent 76%); filter: blur(24px); animation: poolPulse 5s ease-in-out infinite; }
-  @keyframes beamSway { from { margin-left: -12px; } to { margin-left: 12px; } }
-  @keyframes beamBreathe { 0%,100% { opacity: 0.72; } 50% { opacity: 1; } }
-  @keyframes sourcePulse { 0%,100% { opacity: 0.8; transform: translateX(-50%) scale(1, 1); } 50% { opacity: 1; transform: translateX(-50%) scale(1.12, 1.05); } }
-  @keyframes poolPulse { 0%,100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 1; transform: translate(-50%, -50%) scale(1.08, 1.04); } }
-  .coming-soon::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(130% 95% at 50% 50%, transparent 34%, rgba(0,0,0,0.6) 100%); }
-  .cs-inner { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
-  .coming-soon h2 { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; text-transform: uppercase; font-size: clamp(48px, 9vw, 120px); line-height: 1.02; letter-spacing: 0.01em; color: #fff; text-shadow: 0 0 60px rgba(90,40,255,0.45), 0 2px 30px rgba(0,0,0,0.85); }
-  .coming-soon p { margin-top: 22px; font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase; line-height: 2; color: rgba(255,255,255,0.7); max-width: 520px; text-shadow: 0 1px 16px rgba(0,0,0,0.9); }
+  /* coming soon — vertical fluted slats with glowing bottom horizon */
+  .coming-soon { position: relative; z-index: 2; min-height: 85vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 110px 24px; border-top: 1px solid rgba(255,255,255,0.08); background: #020617; overflow: hidden; }
+  .cs-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; background: #020617; }
+  
+  /* Vertical fluted slat panels */
+  .cs-slats {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.015) 0px,
+      rgba(255, 255, 255, 0.055) calc(60px - 4px),
+      rgba(255, 255, 255, 0.12) calc(60px - 2px),
+      rgba(0, 0, 0, 0.65) calc(60px - 1px),
+      rgba(0, 0, 0, 0.95) 60px
+    );
+    mix-blend-mode: overlay;
+    opacity: 0.95;
+  }
+
+  /* Fluted shadows layer for deep 3D relief */
+  .cs-slat-shadows {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.4) 0px,
+      transparent 8px,
+      transparent calc(60px - 12px),
+      rgba(0, 0, 0, 0.6) calc(60px - 2px),
+      rgba(0, 0, 0, 0.85) 60px
+    );
+  }
+
+  /* Deep blue ambient fields */
+  .cs-ambient {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      radial-gradient(100% 75% at 50% 100%, rgba(28, 80, 240, 0.5) 0%, rgba(14, 52, 180, 0.35) 30%, rgba(6, 22, 90, 0.2) 55%, transparent 78%),
+      radial-gradient(120% 80% at 50% 25%, rgba(12, 35, 110, 0.4) 0%, rgba(2, 6, 23, 0.85) 70%, #020617 100%);
+  }
+
+  /* Sweeping animated light beam across fluted slats */
+  .cs-shimmer-sweep {
+    position: absolute;
+    inset: -20% -40%;
+    z-index: 2;
+    pointer-events: none;
+    background: radial-gradient(ellipse 42% 65% at 50% 80%, rgba(56, 189, 248, 0.45) 0%, rgba(37, 99, 235, 0.25) 38%, transparent 70%);
+    filter: blur(44px);
+    mix-blend-mode: screen;
+    animation: csSweep 13s ease-in-out infinite alternate;
+  }
+
+  /* Aurora light wave */
+  .cs-aurora {
+    position: absolute;
+    bottom: -15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(960px, 92vw);
+    height: 480px;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 26% 85% at 32% 80%, rgba(56, 189, 248, 0.32) 0%, transparent 68%),
+      radial-gradient(ellipse 26% 85% at 68% 80%, rgba(99, 102, 241, 0.32) 0%, transparent 68%),
+      radial-gradient(ellipse 32% 90% at 50% 75%, rgba(37, 99, 235, 0.42) 0%, transparent 75%);
+    filter: blur(40px);
+    animation: csAuroraWave 10s ease-in-out infinite alternate;
+  }
+
+  /* Bottom blue neon glow aura */
+  .cs-glow-pool {
+    position: absolute;
+    bottom: -18%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1300px, 115vw);
+    height: 420px;
+    z-index: 1;
+    background: radial-gradient(ellipse 65% 55% at 50% 85%, #0091ff 0%, rgba(0, 110, 255, 0.85) 25%, rgba(2, 60, 210, 0.5) 55%, transparent 75%);
+    filter: blur(54px);
+    opacity: 0.9;
+    animation: csGlowPulse 6s ease-in-out infinite alternate;
+  }
+
+  /* Glowing curved horizon beam / arc */
+  .cs-horizon-arc {
+    position: absolute;
+    bottom: -22%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1050px, 94vw);
+    height: 320px;
+    z-index: 2;
+    border-radius: 50% 50% 0 0;
+    background: radial-gradient(ellipse at 50% 0%, #bae6fd 0%, #38bdf8 18%, #0284c7 42%, rgba(2, 132, 199, 0) 72%);
+    filter: blur(14px);
+    opacity: 0.95;
+    animation: csArcPulse 5s ease-in-out infinite alternate;
+  }
+
+  /* Intense core filament along the horizon curve */
+  .cs-horizon-core {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(780px, 80vw);
+    height: 90px;
+    z-index: 2;
+    border-radius: 50% 50% 0 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 50%, #ffffff 0%, #7dd3fc 28%, rgba(14, 165, 233, 0.5) 60%, transparent 85%);
+    filter: blur(7px);
+    opacity: 0.92;
+    animation: csCoreGleam 4.5s ease-in-out infinite alternate;
+  }
+
+  /* Edge vignette */
+  .cs-vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    pointer-events: none;
+    background:
+      radial-gradient(135% 95% at 50% 50%, transparent 40%, rgba(2, 6, 23, 0.75) 100%),
+      linear-gradient(180deg, rgba(2, 6, 23, 0.7) 0%, transparent 22%, transparent 80%, rgba(2, 6, 23, 0.95) 100%);
+  }
+
+  @keyframes csGlowPulse {
+    0% { opacity: 0.8; transform: translateX(-50%) scale(0.97); }
+    100% { opacity: 1; transform: translateX(-50%) scale(1.03); }
+  }
+  @keyframes csArcPulse {
+    0% { opacity: 0.85; filter: blur(15px); }
+    100% { opacity: 1; filter: blur(11px); }
+  }
+  @keyframes csSweep {
+    0% { transform: translate3d(-24%, 6%, 0) scale(0.92); opacity: 0.6; }
+    50% { transform: translate3d(0%, -3%, 0) scale(1.1); opacity: 1; }
+    100% { transform: translate3d(24%, 6%, 0) scale(0.92); opacity: 0.6; }
+  }
+  @keyframes csAuroraWave {
+    0% { transform: translateX(-50%) rotate(-4deg) scale(0.95, 0.9); opacity: 0.7; }
+    50% { transform: translateX(-50%) rotate(0deg) scale(1.08, 1.12); opacity: 1; }
+    100% { transform: translateX(-50%) rotate(4deg) scale(0.96, 0.94); opacity: 0.75; }
+  }
+  @keyframes csCoreGleam {
+    0% { opacity: 0.82; filter: blur(6px); transform: translateX(-50%) scale(0.95, 0.95); }
+    50% { opacity: 1; filter: blur(9px); transform: translateX(-50%) scale(1.05, 1.08); }
+    100% { opacity: 0.86; filter: blur(6px); transform: translateX(-50%) scale(0.98, 1); }
+  }
+
+  .cs-inner { position: relative; z-index: 5; display: flex; flex-direction: column; align-items: center; }
+  .coming-soon h2 { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; text-transform: uppercase; font-size: clamp(48px, 9vw, 120px); line-height: 1.02; letter-spacing: 0.01em; color: #fff; text-shadow: 0 0 50px rgba(56, 189, 248, 0.4), 0 2px 30px rgba(0,0,0,0.9); }
+  .coming-soon p { margin-top: 22px; font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase; line-height: 2; color: rgba(255,255,255,0.75); max-width: 520px; text-shadow: 0 1px 16px rgba(0,0,0,0.95); }
 
   .final-footer { padding: 18px 32px; display: flex; justify-content: space-between; font-size: 13px; color: #666; border-top: 1px solid #1c1c1c; position: relative; z-index: 2; }
 
@@ -138,7 +434,7 @@
   @media (prefers-reduced-motion: reduce) {
     .reveal, .scroll-reveal { animation: none; transition: none; opacity: 1; filter: none; transform: none; }
     .fluid-blob { animation: none; } .fluid-inner { filter: none; } h1 .warp { filter: none; }
-    .cs-cone, .cs-beam, .cs-core, .cs-ray, .cs-source, .cs-pool { animation: none; }
+    .cs-glow-pool, .cs-horizon-arc, .cs-shimmer-sweep, .cs-aurora, .cs-horizon-core { animation: none; }
   }
 </style>
 </head>
@@ -189,13 +485,11 @@
       <div class="nav-top">
         <span class="wordmark">PRATYUSH.</span>
         <div class="nav-right">
-          <a href="#coming-soon" class="pill-btn">
-            Connect
-            <span class="arrow">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linejoin="round" stroke="#000" d="M13.5 5L20.5 12L13.5 19M3.5 12L20 12" stroke-width="2"/>
-              </svg>
-            </span>
+          <a href="#coming-soon" class="glass-btn glass-btn-sm">
+            <span>Connect</span>
+            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14m-6-6 6 6-6 6"/>
+            </svg>
           </a>
           <span class="menu-label"><span class="open-text">Menu</span><span class="close-text">Close</span></span>
           <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
@@ -226,13 +520,11 @@
       <h1 class="reveal"><span class="warp">I build<br>things.</span></h1>
       <p class="desc reveal">Full-stack builder running GrowthyAI and FeedPlane — automation and AI systems for real businesses.</p>
       <div class="actions reveal">
-        <a href="#coming-soon" class="pill-btn">
-          See the work
-          <span class="arrow">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linejoin="round" stroke="#000" d="M13.5 5L20.5 12L13.5 19M3.5 12L20 12" stroke-width="2"/>
-            </svg>
-          </span>
+        <a href="#coming-soon" class="glass-btn">
+          <span>See the work</span>
+          <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14m-6-6 6 6-6 6"/>
+          </svg>
         </a>
         <a href="#coming-soon" class="link">Get in touch</a>
       </div>
@@ -252,14 +544,16 @@
 </div>
 
 <section class="coming-soon" id="coming-soon">
-  <div class="cs-light" aria-hidden="true">
-    <div class="cs-source"></div>
-    <div class="cs-cone"></div>
-    <div class="cs-beam"></div>
-    <div class="cs-core"></div>
-    <div class="cs-ray l"></div>
-    <div class="cs-ray r"></div>
-    <div class="cs-pool"></div>
+  <div class="cs-bg" aria-hidden="true">
+    <div class="cs-ambient"></div>
+    <div class="cs-aurora"></div>
+    <div class="cs-glow-pool"></div>
+    <div class="cs-shimmer-sweep"></div>
+    <div class="cs-horizon-arc"></div>
+    <div class="cs-horizon-core"></div>
+    <div class="cs-slat-shadows"></div>
+    <div class="cs-slats"></div>
+    <div class="cs-vignette"></div>
   </div>
   <div class="cs-inner">
     <h2 class="scroll-reveal">Coming<br>Soon.</h2>
@@ -309,7 +603,7 @@
       cur.style.transform = `translate3d(${e.clientX - 3.5}px, ${e.clientY - 3.5}px, 0)`;
     }, { passive: true });
     document.addEventListener('pointerover', (e) => {
-      const isInteractive = !!e.target.closest('a, button, input, textarea, select, [role="button"], .pill-btn, .menu-btn, .menu-list a');
+      const isInteractive = !!e.target.closest('a, button, input, textarea, select, [role="button"], .pill-btn, .glass-btn, .menu-btn, .menu-list a');
       cur.classList.toggle('is-hover', isInteractive);
     });
     window.addEventListener('pointerdown', () => cur.classList.add('is-down'));
